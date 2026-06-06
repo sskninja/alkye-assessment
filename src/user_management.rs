@@ -370,7 +370,7 @@ pub async fn task_assign(
     state.invalidate_cache(body.assigned_to);
 
     // Also invalidate the previous assignee if different
-    if let Some((Some(prev))) = old_assignee {
+    if let Some((Some(prev),)) = old_assignee {
         if prev != body.assigned_to {
             state.invalidate_cache(prev);
         }
